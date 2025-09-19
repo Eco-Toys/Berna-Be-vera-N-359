@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>E.E.S.S.O N°359 Bernabé Vera</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 antialiased">
+
+  <!-- HEADER -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+<img src="Imagenes/EESO 359.png" alt="Logo E.E.S.O B.Vera" class="w-16 h-16 object-cover mr-3 rounded">
+
+      <a href="#" class="text-2xl font-bold text-indigo-600">Escuela 359 Bernabé Vera</a>
+      <nav class="hidden sm:flex gap-6 text-sm font-medium">
+        <a href="#" class="px-3 py-2 rounded hover:bg-indigo-50 transition">Inicio</a>
+        <a href="Profesores de la mañana.Html" class="px-3 py-2 rounded hover:bg-indigo-50 transition">Profesores</a>
+        <a href="Noticias.html" class="px-3 py-2 rounded hover:bg-indigo-50 transition">Noticias</a>
+                <a href="Vida de la escuela.html" class="px-3 py-2 rounded hover:bg-indigo-50 transition">Nosotros</a>
+      </nav>
+      <button id="btn-menu" class="sm:hidden p-2 rounded hover:bg-indigo-50 transition" aria-label="Abrir menú">☰</button>
+    </div>
+    <div id="menu-mobile" class="sm:hidden hidden px-6 pb-4 bg-white shadow-md">
+      <a href="#" class="block py-2 border-b border-gray-200">Inicio</a>
+      <a href="#servicios" class="block py-2 border-b border-gray-200">Servicios</a>
+      <a href="#contacto" class="block py-2">Contacto</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+  <!-- Imagen arriba -->
+  <img src="Imagenes/Escuela.jpg" alt="Imagen de bienvenida" class="w-full h-auto mb-6 rounded-lg shadow-lg">
+
+  <div class="max-w-6xl mx-auto px-6 py-32 text-center">
+    <h1 class="text-5xl sm:text-6xl font-extrabold leading-tight drop-shadow-lg">Bienvenido a la E.E.S.O N°359 Bernabé Vera</h1>
+    <p class="mt-6 text-xl sm:text-2xl opacity-90">Educación de calidad y compromiso desde el año 1984</p>
+    <div class="mt-10 flex justify-center gap-4">
+      <a href="#servicios" class="bg-white text-indigo-600 px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition">Ver servicios</a>
+      <a href="#contacto" class="border border-white px-6 py-3 rounded-lg hover:bg-white/20 transition">Contacto</a>
+  </div>
+</section>
+
+    </section>
+    <!-- SECCIÓN DE NOVEDADES -->
+    <section id="novedades" class="max-w-6xl mx-auto px-6 py-16">
+      <h2 class="text-3xl font-bold text-indigo-700 mb-10 text-center">Novedades</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Novedad 1 -->
+<article class="bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 overflow-hidden max-w-sm mx-auto">
+  <div class="p-4 text-center">
+    <h3 class="font-semibold text-lg mb-2 text-indigo-600">Proyecto Huerta</h3>
+    <p class="text-gray-700 mb-4">Galería de imágenes del proyecto</p>
+
+    <img src="Imagenes/Imagen de WhatsApp 2025-09-09 a las 14.26.16_6cd940be.jpg" alt="Proyecto Huerta 1" 
+         class="mx-auto my-2 w-380 rounded cursor-pointer" onclick="openLightbox(this)">
+
+    <img src="Imagenes/Imagen de WhatsApp 2025-09-09 a las 14.26.16_9c7fc14e.jpg" alt="Proyecto Huerta 2" 
+         class="mx-auto my-2 w-380 rounded cursor-pointer" onclick="openLightbox(this)">
+
+    <img src="Imagenes/Imagen de WhatsApp 2025-09-09 a las 14.26.16_c0544df4.jpg" alt="Proyecto Huerta 3" 
+         class="mx-auto my-2 w-380 rounded cursor-pointer" onclick="openLightbox(this)">
+  </div>
+</article>
+
+
+<!-- LIGHTBOX -->
+<div id="lightbox" 
+     class="fixed inset-0 bg-black bg-opacity-80 hidden flex items-center justify-center z-50">
+  
+  <!-- Botón para cerrar -->
+  <span class="absolute top-5 right-8 text-white text-3xl cursor-pointer" onclick="closeLightbox()">&times;</span>
+  
+  <!-- Imagen centrada -->
+  <img id="lightbox-img" src="" alt="Imagen ampliada" 
+       class="max-h-[90%] max-w-[90%] rounded shadow-lg mx-auto">
+</div>
+
+<script>
+  function openLightbox(img) {
+    document.getElementById("lightbox").classList.remove("hidden");
+    document.getElementById("lightbox-img").src = img.src;
+  }
+
+  function closeLightbox() {
+    document.getElementById("lightbox").classList.add("hidden");
+  }
+</script>
+
+        <!-- Novedad 2 -->
+        <article class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 overflow-hidden">
+          <div class="p-6">
+            <h3 class="font-semibold text-xl mb-2 text-indigo-600">Las redes sociales una sonrisa engañosa</h3>
+            <p class="text-gray-700 mb-4">Proyectoo creado pro 5°to año A, turno mañana </p>
+                     <img src="https://picsum.photos/400/200?random=2" alt="Semana de la Educación" class="w-full h-48 object-cover">
+          </div>
+        </article>
+
+      <section id="calendario" class="max-w-5xl mx-auto px-4 py-12">
+  <h2 class="text-2xl font-bold">Calendario Escolar</h2>
+  <p class="mt-2 text-gray-600">Aquí podés ver las fechas importantes de la EESO N.º 359.</p>
+  
+  <iframe 
+    src="https://calendar.google.com/calendar/embed?src=escuelasecundaria359%40gmail.com&ctz=America%2FArgentina%2FCordoba"
+    style="border: 0"
+    width="100%" 
+    height="600" 
+    frameborder="0" 
+    scrolling="no">
+  </iframe>
+</section>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE SERVICIOS -->
+    <section id="servicios" class="max-w-6xl mx-auto px-6 py-16">
+      <h2 class="text-3xl font-bold mb-6 text-center">Orientaciones y asignaturas por año</h2>
+      <h2 class="text-2x1 font-bold mb-3 text-center">esta se da a elección al estudiante despues de haber trascurrido los anteriores años y se dara en el 3 año de secundaria dandole la oportunidad de elegir la orientación mas comodo o cercano a su futuro trabajo y gustos</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Economía y Administración -->
+        <article class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1">
+          <h3 class="font-semibold text-xl mb-4">Orientación en Economía y Administración</h3>
+          
+ <h3 class="text-2x1 font-bold mb-3 text-center">estamos orientado a que sus hijos tengan el mayor conocimiento en el ambito economico,adminstrativo de empresas y en el ambito de contabilidad y estas son las materias que damos por cada año:</h3>
+          <details class="mb-2">
+            <summary class="cursor-pointer font-medium">Primer Año</summary>
+            <ul class="mt-2 list-disc list-inside text-gray-600">
+              <li>Formación ética y ciudadana</li>
+              <li>Lengua y literatura</li>
+              <li>Inglés</li>
+              <li>Educación física</li>
+              <li>Matemática</li>
+              <li>Tecnología</li>
+              <li>Biología</li>
+              <li>Geografía</li>
+              <li>Educación Artística - Música</li>
+              <li>Seminario de Ciencias Sociales</li>
+              <li>Taller de Economía y Administración</li>
+              <li>Rueda de la convivencia</li>
+            </ul>
+          </details>
+
+          <details class="mb-2">
+            <summary class="cursor-pointer font-medium">Segundo Año</summary>
+            <ul class="mt-2 list-disc list-inside text-gray-600">
+              <li>Formación ética y ciudadana</li>
+              <li>Lengua y literatura</li>
+              <li>Inglés</li>
+              <li>Educación física</li>
+              <li>Matemática</li>
+              <li>Tecnología</li>
+              <li>Físico-química</li>
+              <li>Historia</li>
+              <li>Educación Artística - Artes Visuales</li>
+              <li>Seminario de Ciencias Sociales</li>
+              <li>Taller de Economía y Administración</li>
+              <li>Rueda de la convivencia</li>
+            </ul>
+          </details>
+
+          <!-- Tercer, Cuarto y Quinto Año similares -->
+          <details class="mb-2">
+            <summary class="cursor-pointer font-medium">Tercer Año</summary>
+            <ul class="mt-2 list-disc list-inside text-gray-600">
+              <li>Construcción de ciudadanía e identidad</li>
+              <li>Lengua y literatura</li>
+              <li>Inglés</li>
+              <li>Educación física</li>
+              <li>Matemática</li>
+              <li>Administración</li>
+              <li>Física</li>
+              <li>Historia</li>
+              <li>Educación Artística - Artes Visuales</li>
+              <li>Geografía</li>
+              <li>Biología</li>
+            </ul>
+          </details>
+
+          <details class="mb-2">
+            <summary class="cursor-pointer font-medium">Cuarto Año</summary>
+            <ul class="mt-2 list-disc list-inside text-gray-600">
+              <li>Derecho y Construcción de ciudadanía</li>
+              <li>Lengua y literatura</li>
+              <li>Inglés</li>
+              <li>Educación física</li>
+              <li>Matemática</li>
+              <li>Química</li>
+              <li>Historia</li>
+              <li>Geografía</li>
+              <li>Administración</li>
+              <li>Economía</li>
+              <li>S.I.C (Sistema de Información Contable)</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary class="cursor-pointer font-medium">Quinto Año</summary>
+            <ul class="mt-2 list-disc list-inside text-gray-600">
+              <li>Construcción de ciudadanía y participación</li>
+              <li>Derecho</li>
+              <li>Lengua y literatura</li>
+              <li>Inglés</li>
+              <li>Educación física</li>
+              <li>Matemática</li>
+              <li>Filosofía</li>
+              <li>O.C.L (Orientación en Contexto Laboral)</li>
+              <li>Administración</li>
+              <li>Economía</li>
+              <li>S.I.C (Sistema de Información Contable)</li>
+            </ul>
+          </details>
+          <P>Los horarios de esta materia son de las 7:10 hasta las 12:15</P>
+        </article>
+
+        <!-- Ciencias Naturales -->
+        <article class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1">
+          <h3 class="font-semibold text-xl mb-4">Orientación de Ciencias Naturales</h3>
+ <h3 class="text-2x1 font-bold mb-3 text-center">Les daremos horarios mas comodos y flexibles ademas de enseñar temas inportantes como la bilogia y quimica, con experimentos entretenidos de muchos tipos:</h3>
+          <!-- Repetir estructura <details> para cada año igual que arriba -->
+          <details class="mb-2">
+            <summary class="cursor-pointer font-medium">Primer Año</summary>
+            <ul class="mt-2 list-disc list-inside text-gray-600">
+              <li>Formación ética y ciudadana</li>
+              <li>Lengua y literatura</li>
+              <li>Inglés</li>
+              <li>Educación física</li>
+              <li>Matemática</li>
+              <li>Tecnología</li>
+              <li>Biología</li>
+              <li>Geografía</li>
+              <li>Educación Artística - Música</li>
+              <li>Seminario de Ciencias Sociales</li>
+              <li>Taller de Economía y Administración</li>
+              <li>Rueda de la convivencia</li>
+            </ul>
+          </details>
+
+           <details class="mb-2">
+            <summary class="cursor-pointer font-medium">Segundo Año</summary>
+            <ul class="mt-2 list-disc list-inside text-gray-600">
+              <li>Formación ética y ciudadana</li>
+              <li>Lengua y literatura</li>
+              <li>Inglés</li>
+              <li>Educación física</li>
+              <li>Matemática</li>
+              <li>Tecnología</li>
+              <li>Físico-química</li>
+              <li>Historia</li>
+              <li>Educación Artística - Artes Visuales</li>
+              <li>Seminario de Ciencias Sociales</li>
+              <li>Taller de Economía y Administración</li>
+              <li>Rueda de la convivencia</li>
+            </ul>
+          </details>
+
+          <!-- Tercer, Cuarto y Quinto Año similares -->
+          <details class="mb-2">
+            <summary class="cursor-pointer font-medium">Tercer Año</summary>
+            <ul class="mt-2 list-disc list-inside text-gray-600">
+              <li>Construcción de ciudadanía e identidad</li>
+              <li>Lengua y literatura</li>
+              <li>Inglés</li>
+              <li>Educación física</li>
+              <li>Matemática</li>
+              <li>quimica</li>
+              <li>Física</li>
+              <li>Historia</li>
+              <li>Educación Artística - Artes Visuales</li>
+              <li>Geografía</li>
+              <li>Biología</li>
+            </ul>
+          </details>
+
+          <details class="mb-2">
+            <summary class="cursor-pointer font-medium">Cuarto Año</summary>
+            <ul class="mt-2 list-disc list-inside text-gray-600">
+              <li>Construcción de ciudadanía y participación</li>
+              <li>Lengua y literatura</li>
+              <li>Inglés</li>
+              <li>Educación física</li>
+              <li>Matemática</li>
+              <li>Química</li>
+              <li>Historia</li>
+              <li>Geografía</li>
+              <li>Fisica</li>
+              <li>Biologia</li>
+              <li>Salud y adolecencia</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary class="cursor-pointer font-medium">Quinto Año</summary>
+            <ul class="mt-2 list-disc list-inside text-gray-600">
+              <li>Construcción de ciudadanía y derechos</li>
+              <li>Ciencias de la tierra</li>
+              <li>Lengua y literatura</li>
+              <li>Inglés</li>
+              <li>Educación física</li>
+              <li>Matemática</li>
+              <li>Filosofía</li>
+              <li>O.C.L (Orientación en Contexto Laboral)</li>
+              <li>Salud y ambiente</li>
+              <li>Quimica</li>
+              <li>Biologia</li>
+            </ul>
+          </details>
+          <P>los horarios de entrada es de 12:45 hasta 17:50</P>
+
+          <!-- Completar Segundo a Quinto Año con su lista de asignaturas igual que Economía -->
+
+        </article>
+
+      </div>
+    </section>
+
+   <!-- BOTÓN CONTACTO -->
+<button id="toggleContacto"
+    class="inline-block bg-purple-600 text-white font-semibold px-6 py-3 rounded-xl shadow hover:bg-purple-700 hover:shadow-lg transition mb-6">
+    Ver Contacto
+</button>
+
+<!-- SECCIÓN CONTACTO -->
+<section class="max-w-6xl mx-auto px-6 py-16 bg-indigo-50 rounded-2xl shadow-inner overflow-hidden">
+  <div id="contacto" class="max-h-0 overflow-hidden transition-all duration-500">
+    <ul class="text-gray-800 list-disc list-inside space-y-2">
+      <li><strong>Dirección:</strong> Villa Lastenia 382, Marcelino Escalada, Santa Fe</li>
+      <li><strong>Email:</strong> sec359_marcelinoescalada@santafe.edu.ar</li>
+       <li><strong>Telefono:</strong> (+54) 3498 493170</li>
+       <li><strong>celular:</strong>(+54) 3498 15405885</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BOTÓN INSTITUCIONES -->
+<button id="toggleInstituciones"
+    class="inline-block bg-indigo-600 text-white font-semibold px-6 py-3 rounded-xl shadow hover:bg-indigo-700 hover:shadow-lg transition mt-6 mb-6">
+    Instituciones Educativas
+</button>
+
+<!-- SECCIÓN DE INSTITUCIONES -->
+<section class="max-w-6xl mx-auto px-6 py-16 overflow-hidden">
+  <div id="instituciones" class="max-h-0 overflow-hidden transition-all duration-500">
+    <h2 class="text-3xl font-bold text-center">Instituciones Educativas</h2>
+    <p class="mt-4 text-center text-gray-600">
+      Nuestra escuela trabaja junto a distintas organizaciones que fortalecen la vida escolar.
+    </p>
+
+    <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-8">
+      <!-- Cooperativa -->
+      <article class="bg-white p-6 rounded-2xl shadow">
+        <h3 class="text-xl font-semibold text-indigo-700">Cooperativa Escolar</h3>
+        <p class="mt-3 text-gray-600">
+          Espacio donde los estudiantes aprenden valores de solidaridad y trabajo conjunto, 
+          gestionando proyectos productivos y de servicio para la comunidad educativa.
+        </p>
+      </article>
+
+      <!-- Cooperadora -->
+      <article class="bg-white p-6 rounded-2xl shadow">
+        <h3 class="text-xl font-semibold text-indigo-700">Cooperadora de Padres</h3>
+        <p class="mt-3 text-gray-600">
+          Asociación de madres, padres y tutores que colabora con la escuela en 
+          la organización de eventos, apoyo económico y mejoras edilicias.
+        </p>
+      </article>
+
+      <!-- Centro de Estudiantes -->
+      <article class="bg-white p-6 rounded-2xl shadow">
+        <h3 class="text-xl font-semibold text-indigo-700">Centro de Estudiantes</h3>
+        <p class="mt-3 text-gray-600">
+          Representación democrática de los alumnos, que promueve actividades culturales, 
+          deportivas y debates para fortalecer la participación juventud, ademas de que se hace democraticamente cada año.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPT -->
+<script>
+const btnContacto = document.getElementById('toggleContacto');
+const sectionContacto = document.getElementById('contacto');
+
+btnContacto.addEventListener('click', () => {
+  if(sectionContacto.style.maxHeight && sectionContacto.style.maxHeight !== '0px'){
+    sectionContacto.style.maxHeight = '0';
+  } else {
+    sectionContacto.style.maxHeight = sectionContacto.scrollHeight + 'px';
+  }
+});
+
+const btnInstituciones = document.getElementById('toggleInstituciones');
+const sectionInstituciones = document.getElementById('instituciones');
+
+btnInstituciones.addEventListener('click', () => {
+  if(sectionInstituciones.style.maxHeight && sectionInstituciones.style.maxHeight !== '0px'){
+    sectionInstituciones.style.maxHeight = '0';
+  } else {
+    sectionInstituciones.style.maxHeight = sectionInstituciones.scrollHeight + 'px';
+  }
+});
+</script>
+
+</script>
+
+<p>Página creada por el Alumno 👨‍🎓 
+   <span id="easterEgg" style="cursor:pointer; color:inherit;">Jonathan</span> ✍️
+</p>
+
+<script>
+  document.getElementById("easterEgg").addEventListener("click", function() {
+    window.location.href = "Index.html";
+  });
+</script>
+

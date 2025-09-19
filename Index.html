@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegos Clásicos - Snake, Memoria y Tres en Raya</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            padding: 20px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #ffdd40;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin: 25px 0 15px;
+            color: #4CAF50;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin: 20px 0 10px;
+            color: #ffdd40;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .games-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .game-section {
+            background: rgba(40, 40, 40, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4CAF50;
+        }
+        
+        .score {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ffdd40;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 15px;
+            border-radius: 8px;
+        }
+        
+        /* Estilos para el juego de Snake */
+        #snake-game {
+            text-align: center;
+        }
+        
+        #snake-canvas {
+            background-color: #111;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .snake-controls {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        /* Estilos para el juego de Memoria */
+        #memory-game {
+            text-align: center;
+        }
+        
+        #memory-board {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 0 auto;
+        }
+        
+        .memory-card {
+            height: 80px;
+            background-color: #6b5b95;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            color: transparent;
+            transition: all 0.3s;
+        }
+        
+        .memory-card.flipped {
+            background-color: #feb236;
+            color: white;
+            transform: rotateY(180deg);
+        }
+        
+        .memory-card.matched {
+            background-color: #4CAF50;
+            color: white;
+            cursor: default;
+        }
+        
+        /* Estilos para el Tres en Raya */
+        #tic-tac-toe {
+            text-align: center;
+        }
+        
+        #tic-tac-toe-board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 0 auto;
+            max-width: 300px;
+        }
+        
+        .tic-tac-toe-cell {
+            height: 80px;
+            background-color: #2c3e50;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        
+        .tic-tac-toe-cell.x {
+            color: #ff5252;
+        }
+        
+        .tic-tac-toe-cell.o {
+            color: #2196F3;
+        }
+        
+        #game-status {
+            margin: 15px 0;
+            font-size: 1.2rem;
+            min-height: 30px;
+            color: #ffdd40;
+        }
+        
+        button {
+            padding: 12px 25px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 10px 5px;
+        }
+        
+        button:hover {
+            background: #6ec071;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .instructions {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        
+        .instructions h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .game-instructions {
+            margin-bottom: 25px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .games-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .game-section {
+                width: 100%;
+            }
+            
+            #memory-board {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .memory-card {
+                height: 70px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Juegos Clásicos</h1>
+            <p>Disfruta de tres juegos clásicos: Snake, Memoria y Tres en Raya</p>
+        </header>
+        
+        <div class="games-container">
+            <!-- Juego de Snake -->
+            <section class="game-section" id="snake-game">
+                <div class="game-header">
+                    <h2>Snake</h2>
+                    <div class="score" id="snake-score">Puntos: 0</div>
+                </div>
+                <canvas id="snake-canvas" width="400" height="400"></canvas>
+                <div class="snake-controls">
+                    <button id="snake-start">Iniciar</button>
+                    <button id="snake-reset">Reiniciar</button>
+                </div>
+            </section>
+            
+            <!-- Juego de Memoria -->
+            <section class="game-section" id="memory-game">
+                <div class="game-header">
+                    <h2>Juego de Memoria</h2>
+                    <div class="score" id="memory-score">Intentos: 0</div>
+                </div>
+                <div id="memory-board"></div>
+                <button id="memory-reset">Reiniciar Juego</button>
+            </section>
+        </div>
+        
+        <div class="games-container">
+            <!-- Tres en Raya -->
+            <section class="game-section" id="tic-tac-toe">
+                <div class="game-header">
+                    <h2>Tres en Raya</h2>
+                    <div class="score" id="tic-tac-toe-score">Turno: X</div>
+                </div>
+                <div id="tic-tac-toe-board"></div>
+                <div id="game-status"></div>
+                <button id="tic-tac-toe-reset">Reiniciar Juego</button>
+            </section>
+        </div>
+        
+        <div class="instructions">
+            <h2>Instrucciones</h2>
+            
+            <div class="game-instructions">
+                <h3>Snake</h3>
+                <p>Usa las flechas del teclado para mover la serpiente. Come la comida (puntos rojos) para hacerla crecer y ganar puntos. ¡Evita chocar contra las paredes y contra ti mismo!</p>
+            </div>
+            
+            <div class="game-instructions">
+                <h3>Juego de Memoria</h3>
+                <p>Haz clic en las cartas para voltearlas y encontrar todas las parejas. Intenta completar el juego con el menor número de intentos posible.</p>
+            </div>
+            
+            <div class="game-instructions">
+                <h3>Tres en Raya</h3>
+                <p>Haz clic en una casilla para colocar tu ficha. El primer jugador en alinear tres fichas horizontal, vertical o diagonalmente gana.</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>¡Diviértete jugando a estos clásicos juegos!</p>
+            <p>Puedes recargar la página para jugar de nuevo o reiniciar cada juego individualmente.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ========== JUEGO DE SNAKE ==========
+            const snakeCanvas = document.getElementById('snake-canvas');
+            const snakeCtx = snakeCanvas.getContext('2d');
+            const snakeScore = document.getElementById('snake-score');
+            const snakeStartBtn = document.getElementById('snake-start');
+            const snakeResetBtn = document.getElementById('snake-reset');
+            
+            const gridSize = 20;
+            const tileCount = snakeCanvas.width / gridSize;
+            
+            let snake = [];
+            let food = {};
+            let dx = 0;
+            let dy = 0;
+            let score = 0;
+            let snakeGameInterval;
+            let gameSpeed = 100;
+            let isSnakeGameOver = false;
+            let isSnakeRunning = false;
+            
+            // Inicializar el juego de Snake
+            function initSnakeGame() {
+                snake = [
+                    {x: 10, y: 10},
+                    {x: 9, y: 10},
+                    {x: 8, y: 10}
+                ];
+                
+                generateFood();
+                
+                dx = 1;
+                dy = 0;
+                score = 0;
+                snakeScore.textContent = `Puntos: ${score}`;
+                gameSpeed = 100;
+                isSnakeGameOver = false;
+                
+                drawSnake();
+            }
+            
+            // Generar comida para Snake
+            function generateFood() {
+                food = {
+                    x: Math.floor(Math.random() * tileCount),
+                    y: Math.floor(Math.random() * tileCount)
+                };
+                
+                for (let part of snake) {
+                    if (part.x === food.x && part.y === food.y) {
+                        return generateFood();
+                    }
+                }
+            }
+            
+            // Bucle principal de Snake
+            function snakeGameLoop() {
+                if (isSnakeGameOver) return;
+                
+                updateSnake();
+                drawSnake();
+            }
+            
+            // Actualizar Snake
+            function updateSnake() {
+                const head = {x: snake[0].x + dx, y: snake[0].y + dy};
+                
+                // Comprobar colisiones con las paredes
+                if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
+                    snakeGameOver();
+                    return;
+                }
+                
+                // Comprobar colisiones consigo misma
+                for (let i = 0; i < snake.length; i++) {
+                    if (snake[i].x === head.x && snake[i].y === head.y) {
+                        snakeGameOver();
+                        return;
+                    }
+                }
+                
+                // Añadir la nueva cabeza
+                snake.unshift(head);
+                
+                // Comprobar si ha comido la comida
+                if (head.x === food.x && head.y === food.y) {
+                    score += 10;
+                    snakeScore.textContent = `Puntos: ${score}`;
+                    
+                    // Aumentar la velocidad cada 50 puntos
+                    if (score % 50 === 0 && gameSpeed > 50) {
+                        gameSpeed -= 10;
+                        clearInterval(snakeGameInterval);
+                        snakeGameInterval = setInterval(snakeGameLoop, gameSpeed);
+                    }
+                    
+                    generateFood();
+                } else {
+                    // Si no ha comido, eliminar la cola
+                    snake.pop();
+                }
+            }
+            
+            // Dibujar Snake
+            function drawSnake() {
+                // Limpiar el canvas
+                snakeCtx.fillStyle = '#111';
+                snakeCtx.fillRect(0, 0, snakeCanvas.width, snakeCanvas.height);
+                
+                // Dibujar la serpiente
+                snake.forEach((part, index) => {
+                    snakeCtx.fillStyle = index === 0 ? '#4CAF50' : '#8BC34A';
+                    snakeCtx.fillRect(part.x * gridSize, part.y * gridSize, gridSize - 1, gridSize - 1);
+                });
+                
+                // Dibujar la comida
+                snakeCtx.fillStyle = '#FF5252';
+                snakeCtx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 1, gridSize - 1);
+            }
+            
+            // Game Over de Snake
+            function snakeGameOver() {
+                isSnakeGameOver = true;
+                clearInterval(snakeGameInterval);
+                isSnakeRunning = false;
+                snakeStartBtn.textContent = 'Iniciar';
+                alert(`Game Over! Puntuación: ${score}`);
+            }
+            
+            // Manejar las teclas para Snake
+            document.addEventListener('keydown', (e) => {
+                if (!isSnakeRunning) return;
+                
+                switch(e.key) {
+                    case 'ArrowUp':
+                        if (dy === 0) {
+                            dx = 0;
+                            dy = -1;
+                        }
+                        break;
+                    case 'ArrowDown':
+                        if (dy === 0) {
+                            dx = 0;
+                            dy = 1;
+                        }
+                        break;
+                    case 'ArrowLeft':
+                        if (dx === 0) {
+                            dx = -1;
+                            dy = 0;
+                        }
+                        break;
+                    case 'ArrowRight':
+                        if (dx === 0) {
+                            dx = 1;
+                            dy = 0;
+                        }
+                        break;
+                }
+            });
+            
+            // Botones de Snake
+            snakeStartBtn.addEventListener('click', () => {
+                if (isSnakeRunning) {
+                    clearInterval(snakeGameInterval);
+                    isSnakeRunning = false;
+                    snakeStartBtn.textContent = 'Continuar';
+                } else {
+                    if (isSnakeGameOver) {
+                        initSnakeGame();
+                    }
+                    snakeGameInterval = setInterval(snakeGameLoop, gameSpeed);
+                    isSnakeRunning = true;
+                    snakeStartBtn.textContent = 'Pausa';
+                }
+            });
+            
+            snakeResetBtn.addEventListener('click', () => {
+                clearInterval(snakeGameInterval);
+                initSnakeGame();
+                isSnakeRunning = false;
+                snakeStartBtn.textContent = 'Iniciar';
+            });
+            
+            // ========== JUEGO DE MEMORIA ==========
+            const memoryBoard = document.getElementById('memory-board');
+            const memoryScore = document.getElementById('memory-score');
+            const memoryResetBtn = document.getElementById('memory-reset');
+            
+            let memoryCards = [];
+            let flippedMemoryCards = [];
+            let matchedMemoryCards = [];
+            let memoryAttempts = 0;
+            let memoryLockBoard = false;
+            
+            // Símbolos para las cartas (pares)
+            const symbols = ['🍎', '🍌', '🍇', '🍊', '🍓', '🍉', '🍒', '🍑'];
+            
+            // Inicializar el juego de Memoria
+            function initMemoryGame() {
+                memoryAttempts = 0;
+                flippedMemoryCards = [];
+                matchedMemoryCards = [];
+                memoryLockBoard = false;
+                memoryScore.textContent = 'Intentos: 0';
+                
+                // Mezclar y preparar las cartas
+                const gameCards = [...symbols, ...symbols];
+                memoryCards = shuffleArray(gameCards);
+                
+                // Crear el tablero
+                memoryBoard.innerHTML = '';
+                memoryCards.forEach((symbol, index) => {
+                    const card = document.createElement('div');
+                    card.classList.add('memory-card');
+                    card.dataset.index = index;
+                    card.dataset.symbol = symbol;
+                    card.textContent = symbol;
+                    card.addEventListener('click', flipMemoryCard);
+                    memoryBoard.appendChild(card);
+                });
+            }
+            
+            // Mezclar array (algoritmo Fisher-Yates)
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+            
+            // Voltear una carta en el juego de Memoria
+            function flipMemoryCard() {
+                if (memoryLockBoard) return;
+                if (this.classList.contains('flipped')) return;
+                if (flippedMemoryCards.length === 2) return;
+                
+                this.classList.add('flipped');
+                flippedMemoryCards.push(this);
+                
+                if (flippedMemoryCards.length === 2) {
+                    memoryLockBoard = true;
+                    memoryAttempts++;
+                    memoryScore.textContent = `Intentos: ${memoryAttempts}`;
+                    checkMemoryMatch();
+                }
+            }
+            
+            // Comprobar si las cartas coinciden en el juego de Memoria
+            function checkMemoryMatch() {
+                const [card1, card2] = flippedMemoryCards;
+                const isMatch = card1.dataset.symbol === card2.dataset.symbol;
+                
+                isMatch ? disableMemoryCards() : unflipMemoryCards();
+            }
+            
+            // Deshabilitar cartas coincidentes
+            function disableMemoryCards() {
+                flippedMemoryCards.forEach(card => {
+                    card.classList.add('matched');
+                    matchedMemoryCards.push(card);
+                });
+                
+                resetMemoryBoard();
+                
+                // Comprobar si el juego ha terminado
+                if (matchedMemoryCards.length === memoryCards.length) {
+                    setTimeout(() => {
+                        alert(`¡Felicidades! Completaste el juego en ${memoryAttempts} intentos.`);
+                    }, 500);
+                }
+            }
+            
+            // Volver a voltear cartas no coincidentes
+            function unflipMemoryCards() {
+                setTimeout(() => {
+                    flippedMemoryCards.forEach(card => {
+                        card.classList.remove('flipped');
+                    });
+                    resetMemoryBoard();
+                }, 1000);
+            }
+            
+            // Reiniciar el tablero después de cada turno
+            function resetMemoryBoard() {
+                [memoryLockBoard, flippedMemoryCards] = [false, []];
+            }
+            
+            // Reiniciar el juego de Memoria
+            memoryResetBtn.addEventListener('click', initMemoryGame);
+            
+            // ========== TRES EN RAYA ==========
+            const ticTacToeBoard = document.getElementById('tic-tac-toe-board');
+            const ticTacToeScore = document.getElementById('tic-tac-toe-score');
+            const gameStatus = document.getElementById('game-status');
+            const ticTacToeResetBtn = document.getElementById('tic-tac-toe-reset');
+            
+            let currentPlayer = 'X';
+            let gameBoard = ['', '', '', '', '', '', '', '', ''];
+            let gameActive = true;
+            
+            // Combinaciones ganadoras
+            const winningConditions = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8], // Filas
+                [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columnas
+                [0, 4, 8], [2, 4, 6]             // Diagonales
+            ];
+            
+            // Inicializar el Tres en Raya
+            function initTicTacToe() {
+                currentPlayer = 'X';
+                gameBoard = ['', '', '', '', '', '', '', '', ''];
+                gameActive = true;
+                ticTacToeScore.textContent = 'Turno: X';
+                gameStatus.textContent = '';
+                
+                ticTacToeBoard.innerHTML = '';
+                for (let i = 0; i < 9; i++) {
+                    const cell = document.createElement('div');
+                    cell.classList.add('tic-tac-toe-cell');
+                    cell.dataset.index = i;
+                    cell.addEventListener('click', handleCellClick);
+                    ticTacToeBoard.appendChild(cell);
+                }
+            }
+            
+            // Manejar clic en celda
+            function handleCellClick() {
+                const index = this.dataset.index;
+                
+                if (gameBoard[index] !== '' || !gameActive) return;
+                
+                gameBoard[index] = currentPlayer;
+                this.textContent = currentPlayer;
+                this.classList.add(currentPlayer.toLowerCase());
+                
+                checkResult();
+            }
+            
+            // Comprobar resultado
+            function checkResult() {
+                let roundWon = false;
+                
+                for (let i = 0; i < winningConditions.length; i++) {
+                    const [a, b, c] = winningConditions[i];
+                    if (gameBoard[a] === '' || gameBoard[b] === '' || gameBoard[c] === '') continue;
+                    
+                    if (gameBoard[a] === gameBoard[b] && gameBoard[b] === gameBoard[c]) {
+                        roundWon = true;
+                        break;
+                    }
+                }
+                
+                if (roundWon) {
+                    gameStatus.textContent = `¡Jugador ${currentPlayer} gana!`;
+                    gameActive = false;
+                    return;
+                }
+                
+                const roundDraw = !gameBoard.includes('');
+                if (roundDraw) {
+                    gameStatus.textContent = '¡Empate!';
+                    gameActive = false;
+                    return;
+                }
+                
+                currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                ticTacToeScore.textContent = `Turno: ${currentPlayer}`;
+            }
+            
+            // Reiniciar el Tres en Raya
+            ticTacToeResetBtn.addEventListener('click', initTicTacToe);
+            
+            // Inicializar todos los juegos
+            initSnakeGame();
+            initMemoryGame();
+            initTicTacToe();
+        });
+    </script>
+</body>
+</html>

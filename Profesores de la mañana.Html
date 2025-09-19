@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .teacher-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .teacher-card:hover {
+      transform: translateY(-5px);
+    }
+    .badge-ciencias { background-color: #3B82F6; color: white; }
+    .badge-economia { background-color: #8B5CF6; color: white; }
+    .badge-directivo { background-color: #DC2626; color: white; }
+    .badge-primero-segundo { background-color: #059669; color: white; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <!-- Contenido aquí -->
+</body>
+
+  <!-- HEADER -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <img src="Imagenes/EESO 359.png" alt="Logo E.E.S.O B.Vera" class="w-16 h-16 object-cover mr-3 rounded">
+
+      <a href="Untitled-1.html" class="text-2xl font-bold text-indigo-600">Escuela 359 Bernabé Vera</a>
+      <nav class="hidden sm:flex gap-6 text-sm font-medium">
+        <a href="Untitled-1.html#inicio" class="px-3 py-2 rounded hover:bg-indigo-50 transition">Inicio</a>
+        <a href="profesores de la mañana.html" class="px-3 py-2 rounded bg-indigo-100 text-indigo-700 font-semibold">Profesores</a>
+        <a href="Noticias.html" class="px-3 py-2 rounded bg-indigo-100 text-indigo-700 font-semibold">Profesores</a>
+      </nav>
+      <button id="btn-menu" class="sm:hidden p-2 rounded hover:bg-indigo-50 transition" aria-label="Abrir menú">☰</button>
+    </div>
+    <div id="menu-mobile" class="sm:hidden hidden px-6 pb-4 bg-white shadow-md">
+      <a href="Untitled-1.html#inicio" class="block py-2 border-b border-gray-200">Inicio</a>
+      <a href="index.html#servicios" class="block py-2 border-b border-gray-200">Servicios</a>
+      <a href="index.html#contacto" class="block py-2 border-b border-gray-200">Contacto</a>
+      <a href="profesores.html" class="block py-2 text-indigo-700 font-semibold">Profesores</a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="bg-indigo-700 text-white py-16">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Nuestro Equipo</h1>
+      <p class="text-xl opacity-90">Profesionales comprometidos con la educación de calidad</p>
+    </div>
+  </section>
+
+  <!-- FILTROS -->
+  <section class="max-w-6xl mx-auto px-6 py-8">
+    <div class="flex flex-wrap gap-4 justify-center mb-8">
+      <button class="filter-btn px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition font-semibold" data-filter="all">
+        Todos
+      </button>
+      <button class="filter-btn px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold" data-filter="primero-segundo">
+        1° y 2° Año (Mañana)
+      </button>
+      <button class="filter-btn px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold" data-filter="ciencias">
+        Ciencias Naturales
+      </button>
+      <button class="filter-btn px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition font-semibold" data-filter="economia">
+        Economía y Administración
+      </button>
+      <button class="filter-btn px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition font-semibold" data-filter="directivo">
+        Equipo de gestión
+      </button>
+    </div>
+  </section>
+
+  <!-- PROFESORES GRID -->
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="teachers-grid">
+
+      <!-- 1° Y 2° AÑO - TURNO MAÑANA -->
+      <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="primero-segundo">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesor de Matemática" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Andrea Mana</h3>
+          <p class="text-gray-600 mb-2">Profesor de Matemática</p>
+          <span class="badge-primero-segundo px-3 py-1 rounded-full text-sm font-medium">
+            1° y 2° Año A y B - Mañana
+          </span>
+          </p>
+        </div>
+      </div>
+
+      <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="primero-segundo">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Lengua" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Celeste Tregnaghi</h3>
+          <p class="text-gray-600 mb-2">Profesora de Lengua y Literatura</p>
+          <span class="badge-primero-segundo px-3 py-1 rounded-full text-sm font-medium">
+            1° y 2° A y B Año - Mañana
+          </span>
+          </p>
+        </div>
+      </div>
+
+      <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="primero-segundo">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Inglés" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Gaby Bescham </h3>
+          <p class="text-gray-600 mb-2">Profesora de Inglés</p>
+          <span class="badge-primero-segundo px-3 py-1 rounded-full text-sm font-medium">
+            1° A Año - Mañana
+          </span>
+          </p>
+        </div>
+      </div>
+
+      
+      <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="primero-segundo">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Inglés" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Carolina Campusano </h3>
+          <p class="text-gray-600 mb-2">Profesora de Inglés</p>
+          <span class="badge-primero-segundo px-3 py-1 rounded-full text-sm font-medium">
+            1° B y 2° A y B Año - Mañana
+          </span>
+          </p>
+        </div>
+      </div>
+
+            <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="primero-segundo">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Inglés" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Sartor Juan</h3>
+          <p class="text-gray-600 mb-2">Profesor de musica</p>
+          <span class="badge-primero-segundo px-3 py-1 rounded-full text-sm font-medium">
+            1° A y B Año - Mañana
+          </span>
+          </p>
+        </div>
+      </div>
+
+            <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="primero-segundo">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Inglés" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Yanina Perez </h3>
+          <p class="text-gray-600 mb-2">Profesora de Gegrafia</p>
+          <span class="badge-primero-segundo px-3 py-1 rounded-full text-sm font-medium">
+            1° A y B Año - Mañana
+          </span>
+          </p>
+        </div>
+      </div>
+
+            <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="primero-segundo">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Inglés" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Carolina Dalesio </h3>
+          <p class="text-gray-600 mb-2">Profespra de Taller de Economia y Administración</p>
+          <span class="badge-primero-segundo px-3 py-1 rounded-full text-sm font-medium">
+            1° B y 2° A Año - Mañana
+          </span>
+          </p>
+        </div>
+      </div>
+
+            <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="primero-segundo">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Inglés" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Natalia Vignatti </h3>
+          <p class="text-gray-600 mb-2">Formación ética y ciudadana</p>
+          <span class="badge-primero-segundo px-3 py-1 rounded-full text-sm font-medium">
+          2° A y B Año - Mañana
+          </span>
+          </p>
+        </div>
+      </div>
+
+            <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="primero-segundo">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Inglés" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Hasper Conrado </h3>
+          <p class="text-gray-600 mb-2">Artes visuales</p>
+          <span class="badge-primero-segundo px-3 py-1 rounded-full text-sm font-medium">
+            2° A y B Año - Mañana
+          </span>
+          </p>
+        </div>
+      </div>
+
+            <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="primero-segundo">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Inglés" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Braian Sandoval </h3>
+          <p class="text-gray-600 mb-2">Profesor de historia</p>
+          <span class="badge-primero-segundo px-3 py-1 rounded-full text-sm font-medium">
+          2° B Año - Mañana
+          </span>
+          </p>
+        </div>
+      </div>
+
+            <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="primero-segundo">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Inglés" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Lopez Selva</h3>
+          <p class="text-gray-600 mb-2">Profesora de Seminario</p>
+          <span class="badge-primero-segundo px-3 py-1 rounded-full text-sm font-medium">
+            1° A Año - Mañana
+          </span>
+          </p>
+        </div>
+      </div>
+
+            <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="primero-segundo">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Inglés" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Carolina Dalesio </h3>
+          <p class="text-gray-600 mb-2">Profesora de tecnologia</p>
+          <span class="badge-primero-segundo px-3 py-1 rounded-full text-sm font-medium">
+            1° A y B Año - Mañana
+          </span>
+          </p>
+        </div>
+      </div>
+
+            <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="primero-segundo">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Inglés" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Bibiana Cavatortas </h3>
+          <p class="text-gray-600 mb-2">Profesora de Biologia</p>
+          <span class="badge-primero-segundo px-3 py-1 rounded-full text-sm font-medium">
+            1° A y B Año - Mañana
+          </span>
+          </p>
+        </div>
+      </div>
+
+            <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="primero-segundo">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Inglés" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Lopez Selva</h3>
+          <p class="text-gray-600 mb-2">Profesora de Historia</p>
+          <span class="badge-primero-segundo px-3 py-1 rounded-full text-sm font-medium">
+            2° A Año - Mañana
+          </span>
+          </p>
+        </div>
+      </div>
+
+            <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="primero-segundo">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Inglés" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Graciela Sodero </h3>
+          <p class="text-gray-600 mb-2">Profesora de Fisico Quimica</p>
+          <span class="badge-primero-segundo px-3 py-1 rounded-full text-sm font-medium">
+            2° A Año - Mañana
+          </span>
+          </p>
+        </div>
+      </div>
+
+            <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="primero-segundo">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Inglés" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Tere Molina </h3>
+          <p class="text-gray-600 mb-2">Profesora de Tecnología</p>
+          <span class="badge-primero-segundo px-3 py-1 rounded-full text-sm font-medium">
+           2° B Año - Mañana
+          </span>
+          </p>
+        </div>
+      </div>    
+
+      <!-- CIENCIAS NATURALES -->
+      <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="ciencias">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesor de Biología" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Conrado Hasper</h3>
+          <p class="text-gray-600 mb-2">Profesor de Artes Visuales</p>
+          <span class="badge-ciencias px-3 py-1 rounded-full text-sm font-medium">
+            Ciencias Naturales 3°
+          </span>
+        </div>
+      </div>
+
+      <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="ciencias">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Química" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Bibiana Cavatorta</h3>
+          <p class="text-gray-600 mb-2">Profesora de Biologia </p>
+          <span class="badge-ciencias px-3 py-1 rounded-full text-sm font-medium">
+            Ciencias Naturales 3°,4° y 5°
+          </span>
+        </div>
+      </div>
+
+         <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="ciencias">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Química" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Natalia Vignatti</h3>
+          <p class="text-gray-600 mb-2">Profesora de Construcción de Ciudadania e identidad</p>
+          <span class="badge-ciencias px-3 py-1 rounded-full text-sm font-medium">
+            Ciencias Naturales 3° 
+          </span>
+        </div>
+      </div>
+
+   <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="ciencias">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Química" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Dallia Micaela</h3>
+          <p class="text-gray-600 mb-2">Profesora de Lengua</p>
+          <span class="badge-ciencias px-3 py-1 rounded-full text-sm font-medium">
+            Ciencias Naturales 3°
+          </span>
+        </div>
+      </div>
+
+   <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="ciencias">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Química" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Vignatti Agustina</h3>
+          <p class="text-gray-600 mb-2">Profesora de Fisica</p>
+          <span class="badge-ciencias px-3 py-1 rounded-full text-sm font-medium">
+            Ciencias Naturales
+          </span>
+        </div>
+      </div>
+
+   <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="ciencias">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Química" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Peroldini Adriana</h3>
+          <p class="text-gray-600 mb-2">Profesora de Historia</p>
+          <span class="badge-ciencias px-3 py-1 rounded-full text-sm font-medium">
+            Ciencias Naturales 3°
+          </span>
+        </div>
+      </div>
+
+         <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="ciencias">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Química" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Andrea Mana</h3>
+          <p class="text-gray-600 mb-2">Profesora de Matematica</p>
+          <span class="badge-ciencias px-3 py-1 rounded-full text-sm font-medium">
+            Ciencias Naturales 3°, 4° y 5°
+          </span>
+        </div>
+      </div>
+
+         <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="ciencias">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Química" class="w-full h-full object-cover">
+        </div>g
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Yanina Perez</h3>
+          <p class="text-gray-600 mb-2">Profesora de Geografía</p>
+          <span class="badge-ciencias px-3 py-1 rounded-full text-sm font-medium">
+            Ciencias Naturales 3° y 4°
+          </span>
+        </div>
+      </div>
+
+         <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="ciencias">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Química" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Bescham Gabriela</h3>
+          <p class="text-gray-600 mb-2">Profesora de Ingles</p>
+          <span class="badge-ciencias px-3 py-1 rounded-full text-sm font-medium">
+            Ciencias Naturales 4° y 5°
+          </span>
+        </div>
+      </div>
+
+   <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="ciencias">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Química" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Corina Armando</h3>
+          <p class="text-gray-600 mb-2">Profesora de Fisica</p>
+          <span class="badge-ciencias px-3 py-1 rounded-full text-sm font-medium">
+            Ciencias Naturales 4°
+          </span>
+        </div>
+      </div>
+
+         <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="ciencias">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Química" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Saruvi Cristian</h3>
+          <p class="text-gray-600 mb-2">Profesor de Química</p>
+          <span class="badge-ciencias px-3 py-1 rounded-full text-sm font-medium">
+            Ciencias Naturales 4° y 5°
+          </span>
+        </div>
+      </div>
+
+   <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="ciencias">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Química" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Brian Sandoval</h3>
+          <p class="text-gray-600 mb-2">Profesor de historia</p>
+          <span class="badge-ciencias px-3 py-1 rounded-full text-sm font-medium">
+            Ciencias Naturales 4°
+          </span>
+        </div>
+      </div>
+
+         <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="ciencias">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Química" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Brian Sandoval</h3>
+          <p class="text-gray-600 mb-2">Profesora de Construcción de ciudadanía y participación</p>
+          <span class="badge-ciencias px-3 py-1 rounded-full text-sm font-medium">
+            Ciencias Naturales
+          </span>
+        </div>
+      </div>
+
+         <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="ciencias">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Química" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Maribel Baigorria</h3>
+          <p class="text-gray-600 mb-2">Profesora Salud y adolecencia</p>
+          <span class="badge-ciencias px-3 py-1 rounded-full text-sm font-medium">
+            Ciencias Naturales 4°
+          </span>
+        </div>
+      </div>
+
+         <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="ciencias">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Química" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Valentina Escota</h3>
+          <p class="text-gray-600 mb-2">Profesora de Lengua y literatura</p>
+          <span class="badge-ciencias px-3 py-1 rounded-full text-sm font-medium">
+            Ciencias Naturales 4° y 5°
+          </span>
+        </div>
+      </div>
+
+         <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="ciencias">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Química" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Maribel Baigorria</h3>
+          <p class="text-gray-600 mb-2">Profesora de Salud y ambiente</p>
+          <span class="badge-ciencias px-3 py-1 rounded-full text-sm font-medium">
+            Ciencias Naturales 5°
+          </span>
+        </div>
+      </div>
+
+         <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="ciencias">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Química" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Natalia Vignatti</h3>
+          <p class="text-gray-600 mb-2">Profesora de Filosofía</p>
+          <span class="badge-ciencias px-3 py-1 rounded-full text-sm font-medium">
+            Ciencias Naturales 5°
+          </span>
+        </div>
+      </div>
+
+         <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="ciencias">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Química" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Maribel Baigorria</h3>
+          <p class="text-gray-600 mb-2">Profesora de O.C.L</p>
+          <span class="badge-ciencias px-3 py-1 rounded-full text-sm font-medium">
+            Ciencias Naturales 5°
+          </span>
+        </div>
+      </div>
+
+         <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="ciencias">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Química" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Maribel Baigorria</h3>
+          <p class="text-gray-600 mb-2">Profesora de Ciencias de la tierra</p>
+          <span class="badge-ciencias px-3 py-1 rounded-full text-sm font-medium">
+            Ciencias Naturales 5°
+          </span>
+        </div>
+      </div>
+
+         <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="ciencias">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Química" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Veronica Tomatis</h3>
+          <p class="text-gray-600 mb-2">Profesora de Construcción </p>
+          <span class="badge-ciencias px-3 py-1 rounded-full text-sm font-medium">
+            Ciencias Naturales
+          </span>
+        </div>
+      </div>
+
+      <!-- ECONOMÍA Y ADMINISTRACIÓN -->
+      <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Natalia Vignatti</h3>
+          <p class="text-gray-600 mb-2">Construcción de Ciudadania e identidad</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 3 año
+          </span>
+        </div>
+      </div>
+
+      <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesor de Contabilidad" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Conrado Hasper</h3>
+          <p class="text-gray-600 mb-2">Artes visuales</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 3° año 
+          </span>
+        </div>
+      </div>
+
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Carolina Campusano</h3>
+          <p class="text-gray-600 mb-2">Profesora de ingles</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 3° y 4° cuarto año
+          </span>
+        </div>
+      </div>
+
+      
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Julieta Servato</h3>
+          <p class="text-gray-600 mb-2">Profesora de Fisica </p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 3° 
+          </span>
+        </div>
+      </div>
+      
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Carolina Dalesio</h3>
+          <p class="text-gray-600 mb-2">Porfesora de Administración</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 3° Año
+          </span>
+        </div>
+      </div>
+
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Celeste Tregnaghi</h3>
+          <p class="text-gray-600 mb-2">Profesora de Lengua y Literatura</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 3°, 4° y 5°
+          </span>
+        </div>
+      </div>
+      
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Bibiana Cavatorta</h3>
+          <p class="text-gray-600 mb-2">Profesora de Biologia</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 3°
+          </span>
+        </div>
+      </div>
+      
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Sodero Graciela</h3>
+          <p class="text-gray-600 mb-2">Profesora de Matematicas </p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 3° 
+          </span>
+        </div>
+      </div>
+
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Lopez Selva</h3>
+          <p class="text-gray-600 mb-2">Profesora de Historia</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 3° y 4°
+          </span>
+        </div>
+      </div>
+
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Carolina Dalesio</h3>
+          <p class="text-gray-600 mb-2">Profesora de SIC</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 4°
+          </span>
+        </div>
+      </div>
+      
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Mana Andrea</h3>
+          <p class="text-gray-600 mb-2">Profesora de Matematica</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 4° y 5°
+          </span>
+        </div>
+      </div>
+
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Carolina Dalesio </h3>
+          <p class="text-gray-600 mb-2">Profesora de Derecho y Contracución ciudadana</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 4°
+          </span>
+        </div>
+      </div>
+
+      
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Teresita Molina</h3>
+          <p class="text-gray-600 mb-2">Profesora de Administración</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 4°
+          </span>
+        </div>
+      </div>
+
+      
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Teresita Molina</h3>
+          <p class="text-gray-600 mb-2">Profesora de Economía</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 4° y 5°
+          </span>
+        </div>
+      </div>
+
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Yanina Perez</h3>
+          <p class="text-gray-600 mb-2">Profesora de Gegrafia</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 4°
+          </span>
+        </div>
+      </div>
+
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Bibiana Cavatorta</h3>
+          <p class="text-gray-600 mb-2">Profesora de Quimica</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 4° 
+          </span>
+        </div>
+      </div>
+
+      
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Carolina Dalesio</h3>
+          <p class="text-gray-600 mb-2">Profesora de Derecho de Contracución de Ciudadania</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 4°
+          </span>
+        </div>
+      </div>
+      
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Andrea Mana</h3>
+          <p class="text-gray-600 mb-2">Profesora de Economía</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 4° y 5°
+          </span>
+        </div>
+      </div>
+
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Abichayn German</h3>
+          <p class="text-gray-600 mb-2">Profesora de Sistema de información Contable</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 5°
+          </span>
+        </div>
+      </div>
+
+      
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Abichayn German</h3>
+          <p class="text-gray-600 mb-2">Profesor de Administración</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 5°
+          </span>
+        </div>
+      </div>
+
+      
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Carolina Dalesio</h3>
+          <p class="text-gray-600 mb-2">Profesor de Derecho</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 5°
+          </span>
+        </div>
+      </div>
+
+      
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Lazzarini</h3>
+          <p class="text-gray-600 mb-2">Profesora de Ingles</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 5°
+          </span>
+        </div>
+      </div>
+      
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Pastoreli Carolina</h3>
+          <p class="text-gray-600 mb-2">Profesora de O.C.L</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 5°
+          </span>
+        </div>
+      </div>
+      
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Natalia Vignatti</h3>
+          <p class="text-gray-600 mb-2">Profesora de Filosofía</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 5°
+          </span>
+        </div>
+      </div>
+
+        <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="economia">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Profesora de Economía" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Natalia Vignatti</h3>
+          <p class="text-gray-600 mb-2">Profesora de Construcción de ciudadanía y participación</p>
+          <span class="badge-economia px-3 py-1 rounded-full text-sm font-medium">
+            Economía y Administración 5°
+          </span>
+        </div>
+      </div>
+
+      <!-- EQUIPO DIRECTIVO -->
+      <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="directivo">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Director" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Teresita Molina</h3>
+          <p class="text-gray-600 mb-2">Director</p>
+          <span class="badge-directivo px-3 py-1 rounded-full text-sm font-medium">
+            Equipo Directivo
+          </span>
+        </div>
+      </div>
+
+      <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="directivo">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Vicedirectora" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Natalia Rosset</h3>
+          <p class="text-gray-600 mb-2">Secretaria</p>
+          <span class="badge-directivo px-3 py-1 rounded-full text-sm font-medium">
+            Equipo Directivo
+          </span>
+        </div>
+      </div>
+
+            <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="directivo">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Vicedirectora" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Luciana Rojas</h3>
+          <p class="text-gray-600 mb-2">Pro Secretaria</p>
+          <span class="badge-directivo px-3 py-1 rounded-full text-sm font-medium">
+            Equipo Directivo
+          </span>
+        </div>
+      </div>
+
+            <div class="teacher-card bg-white rounded-xl shadow-lg overflow-hidden" data-category="directivo">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="Imagenes/n.png" alt="Vicedirectora" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-indigo-700">Sandra Ravelli</h3>
+          <p class="text-gray-600 mb-2">Preseptora</p>
+          <span class="badge-directivo px-3 py-1 rounded-full text-sm font-medium">
+            Equipo Directivo
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <p>© 2024 E.E.S.O. 359 Bernabé Vera. Todos los derechos reservados.</p>
+      <p class="mt-2">Villa Lastenia 382, Marcelino Escalada, Santa Fe</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Menú móvil
+    document.getElementById('btn-menu').addEventListener('click', function() {
+      const menu = document.getElementById('menu-mobile');
+      menu.classList.toggle('hidden');
+    });
+
+    // Filtrado de profesores
+    document.querySelectorAll('.filter-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const filter = this.getAttribute('data-filter');
+        
+        // Actualizar botones activos
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.classList.remove('bg-indigo-600', 'bg-green-600', 'bg-blue-600', 'bg-purple-600', 'bg-red-600', 'text-white');
+          btn.classList.add('bg-gray-200', 'text-gray-800');
+        });
+        
+        // Aplicar colores según el botón seleccionado
+        if (filter === 'all') this.classList.add('bg-indigo-600', 'text-white');
+        if (filter === 'primero-segundo') this.classList.add('bg-green-600', 'text-white');
+        if (filter === 'ciencias') this.classList.add('bg-blue-600', 'text-white');
+        if (filter === 'economia') this.classList.add('bg-purple-600', 'text-white');
+        if (filter === 'directivo') this.classList.add('bg-red-600', 'text-white');
+
+        // Filtrar profesores
+        document.querySelectorAll('.teacher-card').forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    document.querySelectorAll('#menu-mobile a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('menu-mobile').classList.add('hidden');
+      });
+    });
+  </script>
+
+</body>
+</html>

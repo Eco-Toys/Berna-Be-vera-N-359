@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Noticias - E.E.S.O B.Vera</title>
+  <meta name="description" content="Portal de noticias de la escuela E.E.S.O Bernabé Vera" />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+  <!-- Header -->
+  <header class="bg-white shadow">
+    <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <img src="Imagenes/EESO 359.png" alt="Logo E.E.S.O" class="w-12 h-12 rounded-md object-cover">
+        <div>
+          <h1 class="text-2xl font-extrabold">E.E.S.O N°359 Bernabé Vera</h1>
+          <p class="text-sm text-gray-500">Noticias y novedades de la escuela</p>
+        </div>
+      </div>
+
+      <nav class="hidden sm:flex gap-4 items-center">
+        <a class="px-3 py-2 rounded-md hover:bg-gray-100" href="#novedades">Novedades</a>
+        <a class="px-3 py-2 rounded-md hover:bg-gray-100" href="#eventos">Eventos</a>
+        <a class="px-3 py-2 rounded-md hover:bg-gray-100" href="Untitled-1.html">Inicio</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <label class="relative block">
+          <input id="search" class="placeholder:italic placeholder:text-slate-400 block bg-white w-48 border border-slate-200 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" placeholder="Buscar noticias..." />
+          <span class="absolute inset-y-0 left-2 flex items-center text-gray-400">🔍</span>
+        </label>
+        <button id="newPostBtn" class="hidden md:inline-block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-500">Crear noticia</button>
+        <button id="menuToggle" class="sm:hidden p-2 rounded-md hover:bg-gray-100">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white">
+    <div class="max-w-6xl mx-auto px-6 py-14">
+      <h2 class="text-4xl font-extrabold mb-2">Últimas noticias</h2>
+      <p class="opacity-90 max-w-2xl">Enterate de lo que pasó en la escuela: actividades, logros, eventos y más.</p>
+    </div>
+  </section>
+
+  <!-- Main content -->
+  <main class="max-w-6xl mx-auto px-6 py-10">
+    <!-- Filters -->
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+      <div class="flex gap-3 items-center">
+        <select id="categoryFilter" class="rounded-md border px-3 py-2">
+          <option value="all">Todas las categorías</option>
+          <option value="anuncios">Anuncios</option>
+          <option value="Charlas">Charlas</option>
+          <option value="cultura">Festividades</option>
+          <option value="Viaje">Viaje</option>
+          <option value="eventos">Eventos</option>
+        </select>
+
+        <button id="clearFilters" class="px-3 py-2 rounded-md bg-gray-100 hover:bg-gray-200">Limpiar</button>
+      </div>
+
+      <div class="text-sm text-gray-600">Mostrando <span id="resultsCount">0</span> noticias</div>
+    </div>
+
+    <!-- News grid -->
+    <section id="novedades" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" aria-live="polite">
+      <!-- Cards will be injected here by JS -->
+    </section>
+
+    <!-- Pagination (simple) -->
+    <div class="mt-8 flex justify-center">
+      <button id="prevPage" class="px-4 py-2 rounded-l-md border bg-white">Anterior</button>
+      <div id="pageInfo" class="px-4 py-2 border-t border-b bg-white">1 / 1</div>
+      <button id="nextPage" class="px-4 py-2 rounded-r-md border bg-white">Siguiente</button>
+    </div>
+  </main>
+
+  <!-- Modal for full article -->
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center z-50">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <article class="relative bg-white max-w-3xl w-full mx-4 rounded-2xl shadow-xl overflow-auto max-h-[85vh]">
+      <header class="flex items-start justify-between p-6 border-b">
+        <div>
+          <h3 id="modalTitle" class="text-2xl font-bold"></h3>
+          <p id="modalMeta" class="text-sm text-gray-500 mt-1"></p>
+        </div>
+        <button id="closeModal" class="text-gray-500 hover:text-gray-800 ml-4 text-xl">✕</button>
+      </header>
+      <div class="p-6">
+        <img id="modalImage" src="" alt="" class="w-full h-56 object-cover rounded-md mb-4">
+        <div id="modalContent" class="prose max-w-none"></div>
+      </div>
+    </article>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contacto" class="bg-white mt-10 border-t">
+    <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row sm:justify-between gap-4">
+      <div>
+        <h4 class="font-semibold">E.E.S.O Bernabé Vera</h4>
+        <p class="text-sm text-gray-600">Av. Ejemplo 123 — Marcelino Escalada, Argentina</p>
+      </div>
+
+      <div class="text-sm text-gray-600">
+        Página creada por el Alumno 👨‍🎓 Jonathan ✍️
+      </div>
+    </div>
+  </footer>
+
+  <!-- Template & Data + Scripts -->
+  <script>
+    // --- Datos de ejemplo (sustituir por datos reales o cargar desde un backend) ---
+    const newsData = [
+      {
+        id: 1,
+        title: "Celebración de 40 años de la escuela",
+        category: "Festividades",
+        excerpt: "Festejamos desde la gran apertura de la escuelas el 28 de marzo de 1984 ",
+        content: "<p>El proyecto se centró en paneles solares de bajo costo y técnicas de reciclaje. Los estudiantes demostraron prototipos y recibieron elogios del jurado.</p>",
+        date: "2025-09-01",
+        image: "file:///C:/Users/Jonathan/Documents/ESCUELA/HTML/Imagenes/Torta,%20de%20la%20escuela.jpg"
+      },
+      {
+        id: 2,
+        title: "25 años egresados 2000",
+        category: "Cultura",
+        excerpt: "El equipo femenino demostró garra y logró avanzar a la siguiente fase tras una tanda de penales.",
+        content: "<p>El entrenador destacó la disciplina y el compañerismo del equipo. El próximo partido será el sábado 20.</p>",
+        date: "2025-09-08",
+        image: "file:///C:/Users/Jonathan/Documents/ESCUELA/HTML/Imagenes/Remeras.jpg"
+      },
+      {
+        id: 3,
+        title: "OCL",
+        category: "Viaje",
+        excerpt: "Viaje a crespo",
+        content: "<p>Se invita a estudiantes y familias a participar. Además, habrá una iniciativa para donar libros usados en buen estado.</p>",
+        date: "2025-08-25",
+        image: "https://picsum.photos/seed/lectura/800/450"
+      },
+         {
+        id: 4,
+        title: "OCL",
+        category: "Viaje",
+        excerpt: "Viaje a Esperanza",
+        content: "<p>Se invita a estudiantes y familias a participar. Además, habrá una iniciativa para donar libros usados en buen estado.</p>",
+        date: "2025-08-25",
+        image: "https://picsum.photos/seed/lectura/800/450"
+      },
+         {
+        id: 5,
+        title: "OCL",
+        category: "Viaje",
+        excerpt: "Viaje a Santa Fe",
+        content: "<p>Se invita a estudiantes y familias a participar. Además, habrá una iniciativa para donar libros usados en buen estado.</p>",
+        date: "2025-08-25",
+        image: "https://picsum.photos/seed/lectura/800/450"
+      },
+      {
+        id: 6,
+        title: "OCL:Charlas de Orientación Vocacional y Ocupacional",
+        category: "Charlas",
+        excerpt: "Gracias al señor Juaquin lezcano",
+        content: "<p>El equipo técnico realizará actualizaciones en el software y reemplazo de componentes. Las clases prácticas se reprogramarán.</p>",
+        date: "2025-09-10",
+        image: "https://picsum.photos/seed/lab/800/450"
+      },
+      {
+        id: 7,
+        title: "Salud bucal",
+        category: "Charlas",
+        excerpt: "Gracias a la señora Fabiana Pieropan",
+        content: "<p>La campaña irá hasta el 30 de septiembre. Se buscan cuadernos, mochilas y útiles en buen estado.</p>",
+        date: "2025-09-05",
+        image: "https://picsum.photos/seed/solidario/800/450"
+      },
+          {
+        id: 8,
+        title: "Alimentación Saludable",
+        category: "Charlas",
+        excerpt: "En el futuro se va hacer.",
+        content: "<p>El equipo técnico realizará actualizaciones en el software y reemplazo de componentes. Las clases prácticas se reprogramarán.</p>",
+        date: "2025-15-10",
+        image: "https://picsum.photos/seed/lab/800/450"
+      },
+            {
+        id: 9,
+        title: "Educación Vial",
+        category: "Charlas",
+        excerpt: "Proyecto creado por el gobierno para los estudiantes de todos los años de la escuela secundaria.",
+        content: "<p>El equipo técnico realizará actualizaciones en el software y reemplazo de componentes. Las clases prácticas se reprogramarán.</p>",
+        date: "2025-30-9",
+        image: "https://picsum.photos/seed/lab/800/450"
+      },
+            {
+        id: 10,
+        title: "Aqui y ahora",
+        category: "Charlas",
+        excerpt: "Charlas de Orientación Vocacional y Ocupacional",
+        content: "<p>El equipo técnico realizará actualizaciones en el software y reemplazo de componentes. Las clases prácticas se reprogramarán.</p>",
+        date: "2025-09-10",
+        image: "https://picsum.photos/seed/lab/800/450"
+      },
+            {
+        id: 11,
+        title: "Votación de centro de estudiantes.",
+        category: "Charlas",
+        excerpt: "Votación que se realiza anualmente en el establecimiento escolar.",
+        content: "<p>El equipo técnico realizará actualizaciones en el software y reemplazo de componentes. Las clases prácticas se reprogramarán.</p>",
+        date: "2025-09-10",
+        image: "https://picsum.photos/seed/lab/800/450"
+      },
+            {
+        id: 12,
+        title: "Actividades de reorganización de la cooperativa escolar",
+        category: "Charlas",
+        excerpt: "Charlas de Orientación Vocacional y Ocupacional",
+        content: "<p>El equipo técnico realizará actualizaciones en el software y reemplazo de componentes. Las clases prácticas se reprogramarán.</p>",
+        date: "2025-09-10",
+        image: "https://picsum.photos/seed/lab/800/450"
+      },
+                {
+        id: 13,
+        title: "Mate bingo de la cooperadora",
+        category: "Charlas",
+        excerpt: "Recaudación de Fondos para la cooperadora escolar.",
+        content: "<p>El equipo técnico realizará actualizaciones en el software y reemplazo de componentes. Las clases prácticas se reprogramarán.</p>",
+        date: "2025-09-10",
+        image: "https://picsum.photos/seed/lab/800/450"
+      },
+                {
+        id: 14,
+        title: "Salida por el pueblo",
+        category: "Charlas",
+        excerpt: "Charlas de Orientación Vocacional y Ocupacional",
+        content: "<p>El equipo técnico realizará actualizaciones en el software y reemplazo de componentes. Las clases prácticas se reprogramarán.</p>",
+        date: "2025-09-10",
+        image: "https://picsum.photos/seed/lab/800/450"
+      },
+    ];
+
+    // --- Estado para paginación y filtros ---
+    const state = {
+      perPage: 6,
+      page: 1,
+      filterCategory: 'all',
+      searchTerm: ''
+    };
+
+    const newsContainer = document.querySelector('#novedades');
+    const resultsCount = document.getElementById('resultsCount');
+    const pageInfo = document.getElementById('pageInfo');
+    const prevPageBtn = document.getElementById('prevPage');
+    const nextPageBtn = document.getElementById('nextPage');
+    const searchInput = document.getElementById('search');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const clearFilters = document.getElementById('clearFilters');
+
+    // Render cards based on state
+    function renderNews() {
+      const filtered = newsData.filter(item => {
+        const matchCategory = (state.filterCategory === 'all') || (item.category === state.filterCategory);
+        const term = state.searchTerm.trim().toLowerCase();
+        const matchSearch = !term || (item.title.toLowerCase().includes(term) || item.excerpt.toLowerCase().includes(term));
+        return matchCategory && matchSearch;
+      });
+
+      const total = filtered.length;
+      const totalPages = Math.max(1, Math.ceil(total / state.perPage));
+      if (state.page > totalPages) state.page = totalPages;
+
+      const start = (state.page - 1) * state.perPage;
+      const pageItems = filtered.slice(start, start + state.perPage);
+
+      newsContainer.innerHTML = '';
+      pageItems.forEach(item => {
+        const card = document.createElement('article');
+        card.className = "bg-white rounded-2xl shadow hover:shadow-lg overflow-hidden border";
+        card.innerHTML = `
+          <img src="${item.image}" alt="${escapeHtml(item.title)}" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <div class="mb-2 text-xs uppercase font-semibold text-indigo-600">${categoryLabel(item.category)}</div>
+            <h3 class="text-lg font-bold mb-2">${escapeHtml(item.title)}</h3>
+            <p class="text-sm text-gray-600 mb-4">${escapeHtml(item.excerpt)}</p>
+            <div class="flex items-center justify-between">
+              <div class="text-xs text-gray-500">${formatDate(item.date)}</div>
+              <button data-id="${item.id}" class="openBtn px-3 py-1 rounded bg-indigo-600 text-white text-sm hover:bg-indigo-500">Ver</button>
+            </div>
+          </div>
+        `;
+        newsContainer.appendChild(card);
+      });
+
+      resultsCount.textContent = total;
+      pageInfo.textContent = `${state.page} / ${totalPages}`;
+
+      prevPageBtn.disabled = state.page <= 1;
+      nextPageBtn.disabled = state.page >= totalPages;
+
+      // attach listeners to open buttons
+      document.querySelectorAll('.openBtn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = Number(btn.getAttribute('data-id'));
+          openModal(id);
+        });
+      });
+    }
+
+    // Helpers
+    function categoryLabel(cat) {
+      const map = {
+        anuncios: 'Anuncio',
+        deportes: 'Deportes',
+        cultura: 'Cultura',
+        academico: 'Académico',
+        eventos: 'Evento'
+      };
+      return map[cat] || 'General';
+    }
+
+    function formatDate(d) {
+      try {
+        const dt = new Date(d + 'T00:00:00');
+        return dt.toLocaleDateString('es-AR', { year: 'numeric', month: 'short', day: 'numeric' });
+      } catch (e) { return d; }
+    }
+
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, function (s) {
+        return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[s];
+      });
+    }
+
+    // --- Modal logic ---
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalMeta = document.getElementById('modalMeta');
+    const modalImage = document.getElementById('modalImage');
+    const modalContent = document.getElementById('modalContent');
+    const closeModalBtn = document.getElementById('closeModal');
+
+    function openModal(id) {
+      const item = newsData.find(n => n.id === id);
+      if (!item) return;
+      modalTitle.textContent = item.title;
+      modalMeta.textContent = `${categoryLabel(item.category)} • ${formatDate(item.date)}`;
+      modalImage.src = item.image;
+      modalImage.alt = item.title;
+      modalContent.innerHTML = item.content;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    closeModalBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Pagination handlers
+    prevPageBtn.addEventListener('click', () => { if (state.page > 1) { state.page--; renderNews(); } });
+    nextPageBtn.addEventListener('click', () => { state.page++; renderNews(); });
+
+    // Filters & search
+    searchInput.addEventListener('input', (e) => {
+      state.searchTerm = e.target.value;
+      state.page = 1;
+      renderNews();
+    });
+    categoryFilter.addEventListener('change', (e) => {
+      state.filterCategory = e.target.value;
+      state.page = 1;
+      renderNews();
+    });
+    clearFilters.addEventListener('click', () => {
+      state.filterCategory = 'all';
+      state.searchTerm = '';
+      state.page = 1;
+      categoryFilter.value = 'all';
+      searchInput.value = '';
+      renderNews();
+    });
+
+    // Initial render
+    renderNews();
+
+    // Optional: show "Crear noticia" button to prompt admin (example)
+    document.getElementById('newPostBtn').addEventListener('click', () => {
+      alert('Función de creación de noticias (no implementada en este demo).');
+    });
+
+    // Mobile menu toggle (simple)
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      alert('Menu móvil (enlace rápido): Novedades / Eventos / Contacto');
+    });
+
+    // --- Nota ---
+    // Si querés que el footer con tu nombre sea el Easter Egg (redirija a b.html),
+    // podés reemplazar el texto por:
+    // <span id="easterEgg" style="cursor:pointer; color:inherit;">Jonathan</span>
+    // y añadir:
+    // document.getElementById('easterEgg').addEventListener('click', () => { window.location.href = 'b.html'; });
+  </script>
+</body>
+</html>
